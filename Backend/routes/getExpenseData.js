@@ -19,7 +19,6 @@ GetExpenseData.get("/getExpensedata/:userId",userAuth,async(req,res)=>{
         res.json({data:allExpenseData,userName:email})
     }catch(err){
         res.status(400).json({message:"something went wrong!!"});
-        // res.send(err.message);
     }
 })
 
