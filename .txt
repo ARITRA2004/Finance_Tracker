@@ -1,0 +1,64 @@
+Features
+1. Personalized Financial Insights
+
+AI analyzes spending patterns and gives actionable advice.
+
+Example:
+
+“You spent 40% more on food this month than last month. Consider cooking at home 3 days a week to save ₹1500.”
+
+2. Natural Language Queries
+
+Users can ask questions like:
+
+“How much did I spend on groceries last month?”
+
+“Which month did I save the most this year?”
+
+AI interprets the question and returns summaries or visualizations.
+
+3. Budgeting & Forecasting
+
+AI predicts future expenses based on past trends.
+
+Example:
+
+“If your spending trend continues, you’ll exceed your monthly budget by ₹2000 in 3 months.”
+
+4. Expense Categorization
+
+AI auto-categorizes expenses based on description:
+
+“Amazon purchase → Shopping”
+
+“Uber → Transport”
+
+5. Educational Insights
+
+AI explains financial terms or suggests savings tips.
+
+Example: “What is a recurring deposit?” → AI gives a short, simple explanation.
+
+Tech Stack
+
+Frontend: React
+
+Backend: Node.js + Express
+
+Database: MongoDB
+
+AI Integration: OpenAI GPT (or Google Gemini / Anthropic Claude)
+
+How to Integrate Generative AI
+Step 1: Choose a Gen AI API
+
+Examples: OpenAI GPT, Google Gemini, Anthropic Claude.
+
+Create an API key and test basic prompts.
+
+Step 2: Define AI Roles
+
+Decide what AI will do in your app.
+Example:
+
+“AI acts as a financial assistant that answers user queries and provides suggestions based on transaction data.”

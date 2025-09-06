@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './dashboard.css'
+import axios from 'axios';
 
 const Dashboard = ()=>{
 
@@ -15,15 +16,18 @@ const Dashboard = ()=>{
     const [assets,setAssets] = useState([]);
     const [notifications,setNotifications] = useState([]);
     const [response,setResponse] = useState([]);
+    
+    const incomeAndExpense = (async()=>{
+        try{
+            const data = await axios.get("http://localhost:3000/fill-all-data/expense");
+            setIncomeSources(data);
+            console.log(data);
 
-    useEffect(()=>{
-        const date = new Date();
-        setDate({
-            day: date.getDay(),
-            month: date.getMonth()+1,
-            year: date.getFullYear()
-        })
-    },[date])
+        }catch(err){
+            console.log(err.message);
+        }
+
+    })();
 
     return(
         <div className="finance-dashboard">

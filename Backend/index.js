@@ -16,10 +16,12 @@ app.use(express.json());
 const authRouter = require('./routes/auth.js');
 const profileRouter = require('./routes/profile.js');
 const fillAlldataRoute = require('./routes/fill_the_datas.js');
+const GetExpenseData = require('./routes/getExpenseData.js');
 
 app.use("/",authRouter);
 app.use("/",profileRouter);
 app.use("/",fillAlldataRoute);
+app.use("/",GetExpenseData);
 
 connectDB().then(()=>{
     app.listen(3000,(req,res)=>{
