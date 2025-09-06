@@ -25,5 +25,6 @@ Example: “You spent 40% more on food this month than last month. Consider cook
 # /getExpensedata/:userId
 - from this url
 - fetched 
-- 1. all the expenses
-- 2. the username means the email
+- 1. all the expenses (backend only)
+- 2. the username means the email (backend only)
+- 3. Now user will login can see their datas (backend only)

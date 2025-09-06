@@ -10,10 +10,12 @@ const userAuth = async (req, res, next) => {
     const decodeData = jwt.verify(token, "secretkey");
     const { _id } = decodeData;
 
+    console.log(decodeData);
     const user = await userModel.findById(_id);
     if (!user) throw new Error("The user does not exist");
 
-    req.user = user;
+    // req.user = user;
+    req.user = { userId: decodeData._id, email: user.email };
     next();
   } catch (err) {
     res.status(400).send("Error: " + err.message);
