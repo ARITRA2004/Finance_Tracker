@@ -17,17 +17,23 @@ const Dashboard = ()=>{
     const [notifications,setNotifications] = useState([]);
     const [response,setResponse] = useState([]);
     
-    const incomeAndExpense = (async()=>{
-        try{
-            const data = await axios.get("http://localhost:3000/fill-all-data/expense");
-            setIncomeSources(data);
-            console.log(data);
+    useEffect(()=>{
+        const fetchData = async()=>{
+            try{
+                const res = await axios.get("http://localhost:3000/getExpensedata",{
+                    withCredentials:true
+                });
+                console.log(res);
+                setName(res?.data?.userEmail);
+                setDate(res?.data?.data[0]?.date);
+                console.log(date);
 
-        }catch(err){
-            console.log(err.message);
+            }catch(err){
+                console.log(err.message);
+            }
         }
-
-    })();
+        fetchData();
+    },[])
 
     return(
         <div className="finance-dashboard">
@@ -35,11 +41,15 @@ const Dashboard = ()=>{
                 <div>Avilable balence
                     <div>Rs.{avilableBalance}</div>
                 </div>
-                <div>Date</div>
+                <div>
+                    <span>{date.day}/</span>
+                    <span>{date.month}/</span>
+                    <span>{date.year}</span>
+                </div>
                 <div>
                     <div>{name}</div>
                     <div>
-                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQFWbiZvnqcpAA/profile-displayphoto-scale_200_200/B4EZgWw9vMGYAc-/0/1752728595853?e=2147483647&v=beta&t=z5TzEGixTkB0w5dmqL_9S_n-1PygLzr0OlHmSBBX3wE" height="50%" width="50%" alt="" />
+                        {/* <img src="https://media.licdn.com/dms/image/v2/D4E03AQFWbiZvnqcpAA/profile-displayphoto-scale_200_200/B4EZgWw9vMGYAc-/0/1752728595853?e=2147483647&v=beta&t=z5TzEGixTkB0w5dmqL_9S_n-1PygLzr0OlHmSBBX3wE" height="50%" width="50%" alt="" /> */}
                     </div>
                 </div>
             </div>
