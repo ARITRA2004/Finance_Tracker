@@ -23,6 +23,7 @@ const Dashboard = ()=>{
                 const res = await axios.get("http://localhost:3000/getExpensedata",{
                     withCredentials:true
                 });
+                
                 console.log(res);
                 setName(res?.data?.userEmail);
                 setDate(res?.data?.data[0]?.date);
