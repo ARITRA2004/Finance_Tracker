@@ -7,6 +7,7 @@
 # frontend
 - Make the login page only
 - Made the UI of the dash board (onlt the structure)
+- Today i will show some datas in the frontend by using the APIs
 
 # next work
 - Make the whole db for finance details
@@ -28,3 +29,8 @@ Example: “You spent 40% more on food this month than last month. Consider cook
 - 1. all the expenses (backend only)
 - 2. the username means the email (backend only)
 - 3. Now user will login can see their datas (backend only)
+
+# //getIncomeData
+- create the file and almost done
+
+

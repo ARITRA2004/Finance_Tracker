@@ -80,3 +80,8 @@
     grid-row-start: 3;
     grid-row-end: 5;
 }
+
+.s{
+    display: flex;
+    flex-direction: column;
+}

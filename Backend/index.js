@@ -18,12 +18,14 @@ const profileRouter = require('./routes/profile.js');
 const fillAlldataRoute = require('./routes/fill_the_datas.js');
 const GetExpenseData = require('./routes/getExpenseData.js');
 const UpdateDetails = require('./routes/updateDetails.js');
+const GetIncomeData = require('./routes/getIncomeData.js');
 
 app.use("/",authRouter);
 app.use("/",profileRouter);
 app.use("/",fillAlldataRoute);
 app.use("/",GetExpenseData);
 app.use("/",UpdateDetails);
+app.use("/",GetIncomeData);
 
 connectDB().then(()=>{
     app.listen(3000,(req,res)=>{
