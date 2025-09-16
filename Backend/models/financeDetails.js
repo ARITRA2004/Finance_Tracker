@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const userModel = require("./user");
 
 const expense = mongoose.Schema({
   userId: {

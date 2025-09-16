@@ -3,11 +3,18 @@ const { userAuth } = require("../middleware/authetication");
 const fillAlldataRoute = express.Router();
 const { finance_expense_Model,finance_income_Model } = require("../models/financeDetails.js");
 
+
 fillAlldataRoute.post("/fill-all-data/expense", userAuth, async (req, res) => {
   try {
-    const { userId, fixed, variable, financial, occasional } = req.body;
+    const userid = req.user.userId;
+    
+    if (!userid) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+
+    const {fixed, variable, financial, occasional } = req.body;
     const expenseData = new finance_expense_Model({
-      userId,
+      userId:userid,
       fixed,
       variable,
       financial,
@@ -22,16 +29,22 @@ fillAlldataRoute.post("/fill-all-data/expense", userAuth, async (req, res) => {
 
 fillAlldataRoute.post("/fill-all-data/income", userAuth, async(req, res) => {
   try {
+    const userid = req.user.userId;
+
+    if (!userid) {
+      return res.status(401).json({ message: "User not authenticated" });
+    }
+
     const {
-      userId,
       activeIncome,
       passiveIncome,
       portfolio,
       govermentorSocial,
       others,
     } = req.body;
+
     const incomeData = new finance_income_Model({
-      userId,
+      userId:userid,
       activeIncome,
       passiveIncome,
       portfolio,
