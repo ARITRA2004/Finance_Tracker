@@ -5,7 +5,6 @@ const expense = mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    unique: true,
   },
   date: {
     day: {
@@ -39,7 +38,7 @@ const incomes = mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    unique:true
+    // unique:true
   },
   date: {
     day: {

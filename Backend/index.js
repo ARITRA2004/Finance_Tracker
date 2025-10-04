@@ -19,6 +19,7 @@ const fillAlldataRoute = require('./routes/fill_the_datas.js');
 const GetExpenseData = require('./routes/getExpenseData.js');
 const UpdateDetails = require('./routes/updateDetails.js');
 const GetIncomeData = require('./routes/getIncomeData.js');
+const { dropUserIdIndexes } = require('./config/Checkindex.js');
 
 app.use("/",authRouter);
 app.use("/",profileRouter);
@@ -28,6 +29,7 @@ app.use("/",UpdateDetails);
 app.use("/",GetIncomeData);
 
 connectDB().then(()=>{
+    dropUserIdIndexes();
     app.listen(3000,(req,res)=>{
         console.log("server is running");
     })  

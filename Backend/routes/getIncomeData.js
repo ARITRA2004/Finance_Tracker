@@ -12,7 +12,7 @@ GetIncomeData.get("/getIncomeData", userAuth, async (req, res) => {
 
     let getuser = await userModel.find(req.user.userId);
     let email = "";
-
+    
     if (getuser) {
       email = getuser?.email;
       console.log(email);

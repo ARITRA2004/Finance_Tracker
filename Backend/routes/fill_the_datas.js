@@ -2,6 +2,7 @@ const express = require("express");
 const { userAuth } = require("../middleware/authetication");
 const fillAlldataRoute = express.Router();
 const { finance_expense_Model,finance_income_Model } = require("../models/financeDetails.js");
+const mongoose = require("mongoose");
 
 
 fillAlldataRoute.post("/fill-all-data/expense", userAuth, async (req, res) => {

@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import './dashboard.css'
 import axios from 'axios';
+import {Chart as ChartJs} from 'chart.js/auto';
+import {Bar, Doughnut, Line} from 'react-chartjs-2';
+import MonthlyShowExpAndInc from '../ShowExpenseandIncome/ShowExpenseandIncome';
 
 const Dashboard = ()=>{
 
@@ -27,7 +30,7 @@ const Dashboard = ()=>{
 
                 // const incomeRes = await axios.get("http://localhost:3000/getIncomeData");
                 
-                console.log(expenseRes);
+                // console.log(expenseRes);
 
                 const {data} = expenseRes;
                 const {date,userId,_v,_id, ...rest} = data.data[0];
@@ -51,12 +54,12 @@ const Dashboard = ()=>{
 
                 setExpenses(result)
 
-                console.log(allExpenseSum);
+                // console.log(allExpenseSum);
 
                 setName(expenseRes?.data?.userEmail);
                 setDate(expenseRes?.data?.data[0]?.date);
 
-                console.log(date);
+                // console.log(date);
 
             }catch(err){
                 console.log(err.message);
@@ -92,10 +95,32 @@ const Dashboard = ()=>{
             <div className='f-item is'>Income sources</div>
             <div className='f-item s'>
                 <div>spendings</div>
+                <div className='barchart_expense'>
+
+                    <Line
+                        data={{
+                            labels:Object.entries(Expenses).flatMap(([catagory,items])=>
+                                Object.keys(items)
+                            ),
+                            datasets:[
+                                {
+                                    label:"Expenses",
+                                    data: Object.entries(Expenses).flatMap(([category, items]) =>
+                                    Object.values(items),
+                                  ),
+                                  backgroundColor:["red","green","white"],
+                                //   borderRadius:5,
+                                }
+                            ],
+                        }}
+                    />
+                </div>
                 <div>{totalSpedings}</div>
             </div>
             <div className='f-item i'>Income</div>
-            <div className='f-item ie'>Income and Expense</div>
+            <div className='f-item ie'>
+                <MonthlyShowExpAndInc />
+            </div>
             <div className='f-item a'>Assects</div>
             <div className='f-item ig'>Income goal</div>
             <div className='f-item noti'>Notifications</div>
